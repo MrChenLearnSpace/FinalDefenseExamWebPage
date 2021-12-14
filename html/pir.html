@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期末答辩</title>
+    <link rel="icon" href="../images/favicon.png">
+    <link rel="styleSheet" href="../css/style.css">
+</head>
+<body>
+    <input type="checkbox" id="menu_btn" onclick="IsChuXianPir()">
+    <label class="menu-btn" for="menu_btn">
+        <a  aria-hidden="true"> 导航</a>
+    </label>
+    
+    <div class="wrapper">
+        <ul class="menu">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="../html/pir.html">图片</a></li>
+            <li><a href="../html/game.html">游戏</a></li>
+            <li><a href="../html/vid.html">视频</a></li>
+        </ul>
+    </div>
+    <div id="con_pir">
+        <h1>欢迎来到 pir 世界</h1>
+        <div id = "banner">
+            <ul id="content">
+                <li><img src="../images/94587811_p1_master1200.jpg" width="480" height="270" alt=""></li>
+                <li><img src="../images/94635056_p0_master1200.jpg" width="480" height="270" alt=""></li>
+                <li><img src="../images/background.jpg" width="480" height="270" alt=""></li>
+                <li><img src="../images/34.jpeg" width="480" height="270" alt=""></li>
+                <li><img src="../images/36.jpg" width="480" height="270" alt=""></li>
+            </ul>
+            <div id = "prev"> < </div>
+            <div id = "next"> > </div>
+            <ul id ="nav">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+	var banner = document.getElementById('banner');
+	var prev = document.getElementById('prev');
+	var next = document.getElementById('next');
+	var lis = document.querySelectorAll('#content>li');
+	var dots = document.querySelectorAll('#nav>li');
+	var index = 0;
+	next.onclick = autoplay;
+	function autoplay(){
+		
+		lis[index].style.opacity = 0;
+		index++;
+		if(index==5){
+			index = 0;
+		}
+		lis[index].style.opacity = 1;
+		changedot();
+	}
+	prev.onclick = function(){
+	
+		lis[index].style.opacity = 0;
+		index--;
+		if(index==-1){
+			index = 4;
+		}
+		lis[index].style.opacity = 1;
+		changedot();
+	}
+	//按钮颜色改变
+	function changedot(){
+		for(var i = 0;i<dots.length;i++){
+			dots[i].style.backgroundColor = '#ccc';
+		}
+		dots[index].style.backgroundColor = '#F33';
+	}
+	//定时器 两秒切换
+	var timer = setInterval(autoplay,2000);
+	//当鼠标移入
+	banner.onmouseover = function(){
+		prev.style.opacity = 1;
+		next.style.opacity = 1;
+		clearInterval(timer);
+	}
+	//当鼠标移出
+	banner.onmouseout = function(){
+		prev.style.opacity = 0;
+		next.style.opacity = 0;
+		timer = setInterval(autoplay,2000);
+	}
+	for(var i = 0;i<dots.length;i++){
+		dots[i].pos = i;
+	}
+	//为每个按钮添加点击事件
+	for(var i = 0;i<dots.length;i++){
+		dots[i].onmouseover = function(){
+			lis[index].style.opacity = 0;
+			index = this.pos;
+			lis[index].style.opacity = 1;
+			changedot();
+		}
+	}
+    var Pir_bool=true;
+    var Pir_Con=document.getElementById('con_pir');
+    function IsChuXianPir(){
+        if(Pir_bool)
+        {
+            Pir_bool=false;
+            Pir_Con.style.display="none";
+        }
+        else{
+            Pir_bool=true;
+            Pir_Con.style.display="flex";
+        }
+    }
+</script>

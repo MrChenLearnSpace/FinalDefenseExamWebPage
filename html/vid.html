@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期末答辩</title>
+    <link rel="icon" href="../images/favicon.png">
+    <link rel="styleSheet" href="../css/style.css">
+    <script>
+        
+        var value_bool=false;
+        function IsChuXianVids() {
+        var x=document.getElementById("con_vid")
+        if(value_bool)
+        {
+            value_bool=false;
+            x.innerHTML='<h1>欢迎来到 vid 世界</h1><video width="320" height="240" controls="controls"><source src="../vids/movie.ogv"/></video>';
+        }
+        else{
+            value_bool=true;
+            x.innerHTML=" <h1>欢迎来到 vid 世界</h1>";
+        }
+      }
+    </script>
+</head>
+<body>
+    <input type="checkbox" id="menu_btn" onclick="IsChuXianVids()">
+    <label class="menu-btn" for="menu_btn" >
+        <a  aria-hidden="true" > 导航</a>
+    </label>
+    
+    <div class="wrapper">
+        <ul class="menu">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="../html/pir.html">图片</a></li>
+            <li><a href="../html/game.html">游戏</a></li>
+            <li><a href="../html/vid.html">视频</a></li>
+        </ul>
+    </div>
+   
+    <div id="con_vid"  >
+        <h1>欢迎来到 vid 世界</h1>
+        <video width="800" height="400" controls="controls">
+            <source src="../vids/movie.ogv" />
+        </video>
+    </div>
+
+</body>
+</html>

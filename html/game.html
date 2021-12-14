@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期末答辩</title>
+    <link rel="icon" href="../images/favicon.png">
+    <link rel="styleSheet" href="../css/style.css">
+</head>
+<body>
+    <input type="checkbox" id="menu_btn" onclick="IsChuXianGame()">
+    <label class="menu-btn" for="menu_btn">
+        <a  aria-hidden="true"> 导航</a>
+    </label>
+    
+    <div class="wrapper">
+        <ul class="menu">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="../html/pir.html">图片</a></li>
+            <li><a href="../html/game.html">游戏</a></li>
+            <li><a href="../html/vid.html">视频</a></li>
+        </ul>
+    </div>
+    <div id="con_game">
+        <h1>欢迎来到 game 世界</h1>
+        <iframe src="../web/index.html" width="960" height="600" >
+ 
+            <a href="../web/index.html">你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a>
+             
+        </iframe>
+    </div>
+
+</body>
+</html>
+<script>
+    var game_bool=true;
+    var game_Con=document.getElementById('con_game');
+    function IsChuXianGame(){
+        if(game_bool)
+        {
+            game_bool=false;
+            game_Con.style.display="none";
+        }
+        else{
+            game_bool=true;
+            game_Con.style.display="flex";
+        }
+    }
+</script>
